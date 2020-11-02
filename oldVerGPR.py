@@ -109,6 +109,10 @@ class GPR(logging):
             self._regr = RegrCnst()
         elif self.regr == "linear":
             self._regr = RegrLinr()
+        elif self.regr == "quadratic":
+            self.printMsg("Models::GPR::__init__: Using quadratic trend, " \
+                          "SET use_lib=TRUE when predicting.", -1)
+            self._regr = RegrLinr()
         else:
             self._regr = None
 
@@ -186,6 +190,8 @@ class GPR(logging):
             out = self._predict_lib(inp, eval_MSE)
         else:
             # User-implemented prediction function
+            if self.regr == "quadratic":
+                raise NotImplementedError("Quadratic trend only works with use_lib=True")
             out = self._predict_usr(inp, eval_MSE)
         if eval_MSE:
             return self._dmOut(out[0]), self._dmMSE(out[1])

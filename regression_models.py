@@ -10,11 +10,7 @@ The built-in regression models submodule for the gaussian_process module.
 
 
 import numpy as np
-from sklearn.utils import deprecated
 
-
-@deprecated("The function constant of regression_models is "
-            "deprecated in version 0.19.1 and will be removed in 0.22.")
 def constant(x):
     """
     Zero order polynomial (constant, p = 1) regression model.
@@ -38,9 +34,6 @@ def constant(x):
     f = np.ones([n_eval, 1])
     return f
 
-
-@deprecated("The function linear of regression_models is "
-            "deprecated in version 0.19.1 and will be removed in 0.22.")
 def linear(x):
     """
     First order polynomial (linear, p = n+1) regression model.
@@ -64,9 +57,6 @@ def linear(x):
     f = np.hstack([np.ones([n_eval, 1]), x])
     return f
 
-
-@deprecated("The function quadratic of regression_models is "
-            "deprecated in version 0.19.1 and will be removed in 0.22.")
 def quadratic(x):
     """
     Second order polynomial (quadratic, p = n*(n-1)/2+n+1) regression model.
