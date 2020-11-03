@@ -145,7 +145,7 @@ if __name__=="__main__":
     # initialize the dataset from files    
     dataset = dataset.Dataset(RAW_DATA_PATH, PARAM_PATH)
     # get k-folds
-    folds = pickle.load(open("../folds.pckl","rb"))
+    folds = pickle.load(open("./folds.pckl","rb"))
 
     kernel_type = ['matern52','squared_exponential']
     err_type = ['rl2', 'rlinf']
